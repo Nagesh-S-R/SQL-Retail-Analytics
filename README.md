@@ -3,9 +3,6 @@ This repository features a well-organized set of SQL scripts designed for compre
 
 These queries serve as practical tools for data analysts and BI professionals to quickly generate insights, monitor performance, and make data-driven decisions. The scripts follow clean SQL practices, leveraging powerful features like window functions, aggregations, and conditional logic to solve real-world analytical problems efficiently.
 
-Perfect — here’s the **GitHub-friendly `README.md` section** for listing all the SQL concepts and functions you’ve used, cleanly formatted and ready to include:
-
----
 
 ## SQL Concepts & Functions Used
 
