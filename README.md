@@ -61,6 +61,6 @@ This project demonstrates a wide range of SQL techniques, covering schema design
 * `LAG()`
 
 
-### This project showcases how SQL can be effectively used for end-to-end data exploration, performance tracking, and business insight generation. By applying a wide range of SQL techniques—from basic querying to advanced window functions and segmentation logic—this collection of scripts demonstrates practical, real-world analytics workflows. It serves as a solid foundation for anyone looking to strengthen their SQL skills, support BI dashboards, or prepare for data analyst roles.
+This project showcases how SQL can be effectively used for end-to-end data exploration, performance tracking, and business insight generation. By applying a wide range of SQL techniques—from basic querying to advanced window functions and segmentation logic—this collection of scripts demonstrates practical, real-world analytics workflows. It serves as a solid foundation for anyone looking to strengthen their SQL skills, support BI dashboards, or prepare for data analyst roles.
 
 
