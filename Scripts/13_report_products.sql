@@ -23,11 +23,9 @@ Highlights:
 -- =============================================================================
 -- Create Report: gold.report_products
 -- =============================================================================
-IF OBJECT_ID('gold.report_products', 'V') IS NOT NULL
-    DROP VIEW gold.report_products;
-GO
+DROP VIEW  IF EXISTS report_products;
 
-CREATE VIEW gold.report_products AS
+CREATE VIEW report_products AS
 
 WITH base_query AS (
 /*---------------------------------------------------------------------------
@@ -44,8 +42,8 @@ WITH base_query AS (
         p.category,
         p.subcategory,
         p.cost
-    FROM gold.fact_sales f
-    LEFT JOIN gold.dim_products p
+    FROM gold_fact_sales f
+    LEFT JOIN gold_dim_products p
         ON f.product_key = p.product_key
     WHERE order_date IS NOT NULL  -- only consider valid sales dates
 ),
@@ -60,7 +58,7 @@ SELECT
     category,
     subcategory,
     cost,
-    DATEDIFF(MONTH, MIN(order_date), MAX(order_date)) AS lifespan,
+    TIMESTAMPDIFF(MONTH, MIN(order_date), MAX(order_date)) AS lifespan,
     MAX(order_date) AS last_sale_date,
     COUNT(DISTINCT order_number) AS total_orders,
 	COUNT(DISTINCT customer_key) AS total_customers,
@@ -87,7 +85,7 @@ SELECT
 	subcategory,
 	cost,
 	last_sale_date,
-	DATEDIFF(MONTH, last_sale_date, GETDATE()) AS recency_in_months,
+	TIMESTAMPDIFF(MONTH, last_sale_date, NOW()) AS recency_in_months,
 	CASE
 		WHEN total_sales > 50000 THEN 'High-Performer'
 		WHEN total_sales >= 10000 THEN 'Mid-Range'
